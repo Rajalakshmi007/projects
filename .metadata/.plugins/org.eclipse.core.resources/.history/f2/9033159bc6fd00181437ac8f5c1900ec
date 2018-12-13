@@ -1,0 +1,48 @@
+package com.product.dao;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.List;
+
+import com.product.model.Product;
+import com.ticketresolution.db.DBConnection;
+
+public class ProductManipulation {
+	ProductDao dbconnection = null;
+	List<Product> productList = null;
+	public ProductManipulation() {
+		dbconnection = new ProductDao();
+	}
+	
+	public List<Product> getAllProducts(){
+		Statement statement = null;
+		String query = "SELECT Password from Employee where UserName=\"" + userName + "\"";
+		try {
+			statement = DBConnection.connection.createStatement();
+			ResultSet resultset = statement.executeQuery(query);
+			while (resultset.next()) {
+				password = resultset.getString(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return productList;
+	}
+
+	public String getPassWord(String userName) {
+		String password = null;
+		Statement statement = null;
+		String query = "SELECT Password from Employee where UserName=\"" + userName + "\"";
+		try {
+			statement = DBConnection.connection.createStatement();
+			ResultSet resultset = statement.executeQuery(query);
+			while (resultset.next()) {
+				password = resultset.getString(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return password;
+	}
+}

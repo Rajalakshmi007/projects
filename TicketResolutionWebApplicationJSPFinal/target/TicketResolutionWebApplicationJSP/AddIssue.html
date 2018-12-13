@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>AddIssue</title>
+<link rel="stylesheet" type="text/css" href="issue.css">
+</head>
+<body>
+<h1 id="system" style="color:blue;">TICKET RESOLUTION SYSTEM</h1>
+<div>
+<form action="AddIssueServlet" method="post">
+	<h2>ADD ISSUE</h2>
+	<label>Employee ID:</label>
+ 	<input type="text" name="empid" required><br>
+ 	<label>IssueType:</label>
+ 	<input list="issuetype" name="issueType" required>
+  	<datalist id="issuetype">
+    <option value="s/w">
+    <option value="h/w">
+    <option value="n/w">
+    </datalist>
+  	<label>IssueDescription:</label>
+  	<input type="text" name="issueDescription" required><br>
+  	<label>IssueItem:</label>
+  	<input type="text" name="issueItem" required><br>
+  	<label>Solutions:</label>
+  	<input type="text" name="solutions"><br>
+  	<label>TargetResolutionDate:</label>
+  	<input type="datetime-local" name="targetResolutionDate" required><br>
+  	<label>AssignedTo:</label>
+  	<input type="text" name="assignedTo" required><br>
+  	<label>Priority:</label>
+  	<input list="priority_id" name="priority" required>
+  	<datalist id="priority_id">
+    <option value="MINOR">
+    <option value="MAJOR">
+    <option value="CRITICAL">
+    </datalist>
+  	<label>Status: </label>
+  	<input list="status_id" name="status" required>
+  	<datalist id="status_id">
+    <option value="NEW">
+    <option value="IN_PROGRESS">
+    <option value="FIXED">
+    </datalist>
+  	<label>DateCreated:</label>
+  	<input type="datetime-local" name="dateCreated" required><br>
+  	<label>DateResolved:</label>
+  	<input type="datetime-local" name="dateResolved"><br>
+  	<input id="button" type="submit" value="Add">
+</form>
+</div>
+</body>
+</html>

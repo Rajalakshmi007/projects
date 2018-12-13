@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Solution</title>
+<link rel="stylesheet" type="text/css" href="issue.css">
+<script type="text/javascript" src="includeHtml.js"></script>
+</head>
+<body>
+<h1 id="system" style="color:blue;">TICKET RESOLUTION SYSTEM</h1>
+<div id="include_div" style="width:100%" w3-include-html="headerNavigation.html"></div>
+<div>
+	<form action="AddSolutionServlet" method="get">
+		<h2>ADD SOLUTION</h2>
+		<label>Issue ID:</label>
+		<input type="text" name="issueID" required><br> 
+		<label>Solution:</label>
+		<input type="text" name="solution" required><br> 
+		<input type="hidden" name="htmlname" value="addsolution" /> 
+		<input id="button" type="submit" value="Add">
+	</form>
+</div>
+<script>
+includeHTML();
+</script>
+</body>
+</html>

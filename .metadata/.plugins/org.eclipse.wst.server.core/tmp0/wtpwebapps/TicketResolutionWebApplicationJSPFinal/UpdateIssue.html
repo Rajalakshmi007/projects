@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Update Issue</title>
+<link rel="stylesheet" type="text/css" href="issue.css">
+<script type="text/javascript" src="includeHtml.js"></script>
+</head>
+<body>
+<h1 id="system" style="color:blue;">TICKET RESOLUTION SYSTEM</h1>
+<div id="include_div" style="width:100%" w3-include-html="headerNavigation.html"></div>
+<div>
+<form action="UpdateIssueServlet" method="post">
+	<h2>UPDATE ISSUE</h2>
+	<label>Employee ID:</label>
+ 	<input type="text" name="empId" required><br>
+ 	<label>Issue ID:</label>
+ 	<input type="text" name="issueID" required><br>
+ 	<label>Status: </label>
+ 	<input list="status_id" name="status" required>
+  	<datalist id="status_id">
+    <option value="NEW">
+    <option value="IN_PROGRESS">
+    <option value="FIXED">
+    </datalist>
+ 	<label>Date Created:</label>
+ 	<input type="datetime-local" name="dateCreated" required><br>
+ 	<input type="hidden" name="htmlname" value="updateissue" />
+  	<input id="button" type="submit" value="Update Issue Status">
+</form>
+</div>
+<script>
+includeHTML();
+</script>
+</body>
+</html>

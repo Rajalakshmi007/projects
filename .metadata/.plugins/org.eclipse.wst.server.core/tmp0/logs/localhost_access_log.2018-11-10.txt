@@ -1,0 +1,17 @@
+127.0.0.1 - - [10/Nov/2018:23:12:54 +0530] "GET / HTTP/1.1" 404 1070
+0:0:0:0:0:0:0:1 - - [10/Nov/2018:23:12:55 +0530] "GET /TicketResolutionWebApplicationJSP/ HTTP/1.1" 200 2726
+0:0:0:0:0:0:0:1 - - [10/Nov/2018:23:12:55 +0530] "GET /TicketResolutionWebApplicationJSP/img/issueimage.jpg HTTP/1.1" 200 50302
+0:0:0:0:0:0:0:1 - - [10/Nov/2018:23:13:03 +0530] "GET /TicketResolutionWebApplicationJSP/ HTTP/1.1" 200 2726
+0:0:0:0:0:0:0:1 - - [10/Nov/2018:23:13:03 +0530] "GET /TicketResolutionWebApplicationJSP/img/issueimage.jpg HTTP/1.1" 200 50302
+0:0:0:0:0:0:0:1 - - [10/Nov/2018:23:13:03 +0530] "GET /favicon.ico HTTP/1.1" 404 1081
+0:0:0:0:0:0:0:1 - - [10/Nov/2018:23:20:12 +0530] "GET /TicketResolutionWebApplicationJSP/ HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [10/Nov/2018:23:20:14 +0530] "GET /TicketResolutionWebApplicationJSP/ HTTP/1.1" 200 2726
+0:0:0:0:0:0:0:1 - - [10/Nov/2018:23:20:14 +0530] "GET /TicketResolutionWebApplicationJSP/img/issueimage.jpg HTTP/1.1" 200 50302
+0:0:0:0:0:0:0:1 - - [10/Nov/2018:23:20:14 +0530] "GET /favicon.ico HTTP/1.1" 404 1081
+0:0:0:0:0:0:0:1 - - [10/Nov/2018:23:20:16 +0530] "GET /TicketResolutionWebApplicationJSP/AddEmployee.html HTTP/1.1" 200 392
+0:0:0:0:0:0:0:1 - - [10/Nov/2018:23:20:59 +0530] "POST /TicketResolutionWebApplicationJSP/CreateEmployeeServlet HTTP/1.1" 200 33
+0:0:0:0:0:0:0:1 - - [10/Nov/2018:23:21:58 +0530] "GET /TicketResolutionWebApplicationJSP/AddIssue.html HTTP/1.1" 200 1758
+0:0:0:0:0:0:0:1 - - [10/Nov/2018:23:21:58 +0530] "GET /TicketResolutionWebApplicationJSP/issue.css HTTP/1.1" 200 634
+0:0:0:0:0:0:0:1 - - [10/Nov/2018:23:21:58 +0530] "GET /TicketResolutionWebApplicationJSP/img/bar.jpg HTTP/1.1" 200 8286
+0:0:0:0:0:0:0:1 - - [10/Nov/2018:23:23:39 +0530] "POST /TicketResolutionWebApplicationJSP/AddIssueServlet HTTP/1.1" 500 1679
+0:0:0:0:0:0:0:1 - - [10/Nov/2018:23:24:00 +0530] "POST /TicketResolutionWebApplicationJSP/AddIssueServlet HTTP/1.1" 500 1679

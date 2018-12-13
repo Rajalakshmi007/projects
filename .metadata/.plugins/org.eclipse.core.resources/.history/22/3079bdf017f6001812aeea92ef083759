@@ -1,0 +1,58 @@
+package com.ticketresolution.service;
+
+import java.util.List;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
+
+import com.ticketresolution.controller.ReportGenerator;
+import com.ticketresolution.model.Report;
+
+@Path("/GenerateReportService")
+public class ReportGenerationService {
+
+	ReportGenerator reportGenerator = new ReportGenerator();
+	
+	@GET
+	@Path("/statusReport")
+	@Produces(MediaType.APPLICATION_XML)
+	public List<Report> getStatusWiseReport(@QueryParam("status") String status) {
+		List<Report> reports = reportGenerator.generateStatuswiseReport(status);
+		return reports;
+	}
+	
+	@GET
+	@Path("/userReport")
+	@Produces(MediaType.APPLICATION_XML)
+	public List<Report> getUserWiseReport(@QueryParam("user") String user) {
+		List<Report> reports = reportGenerator.generateStatuswiseReport(user);
+		return reports;
+	}
+	
+	@GET
+	@Path("/priorityReport")
+	@Produces(MediaType.APPLICATION_XML)
+	public List<Report> getPriorityWiseReport(@QueryParam("status") String status) {
+		List<Report> reports = reportGenerator.generateStatuswiseReport(status);
+		return reports;
+	}
+	
+	@GET
+	@Path("/assigneeReport")
+	@Produces(MediaType.APPLICATION_XML)
+	public List<Report> getAssigneeWiseReport(@QueryParam("assignee") String assignee) {
+		List<Report> reports = reportGenerator.generateStatuswiseReport(assignee);
+		return reports;
+	}
+	
+	@GET
+	@Path("/issueTypeReport")
+	@Produces(MediaType.APPLICATION_XML)
+	public List<Report> getIssueTypeWiseReport(@QueryParam("issueType") String issueType) {
+		List<Report> reports = reportGenerator.generateStatuswiseReport(issueType);
+		return reports;
+	}
+}

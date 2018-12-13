@@ -1,0 +1,145 @@
+package com.product.imple;
+
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
+
+import com.mysql.jdbc.StringUtils;
+import com.product.dao.ProductManipulation;
+import com.product.model.Product;
+
+@ManagedBean
+@ViewScoped
+public class ProductMgmtImpl {
+	String productId;
+	String productName;
+	Double productPrice;
+	String productDesc;
+	int quantity;
+	boolean isEditable = false;
+	boolean isAddProductSection = false;
+	static List<Product> productList = null;
+	ProductManipulation productmanipulation = null;
+	public ProductMgmtImpl() {
+		productmanipulation = new ProductManipulation();
+		productList = productmanipulation.getAllProducts();
+	}
+
+	public List<Product> getProductList() {
+		return productList;
+	}
+
+	public void setProductList(List<Product> productList) {
+		this.productList = productList;
+	}
+	
+	public String deleteProduct(Product ProductId) {
+		productList = productmanipulation.deleteProductFromDB(ProductId.getProductId());
+		return null;
+	}
+	
+	public String addProduct() {
+		int success = 0;
+		Product p = new Product(this.productId, this.productName, this.productPrice, this.productDesc, this.quantity);
+		success = productmanipulation.addProducttoDb(p);
+		isAddProductSection = false;
+		if(success > 0) {
+			productList = productmanipulation.getAllProducts();
+		}else {
+			FacesMessage errorMessage = new FacesMessage("Duplicate products entered");
+			errorMessage.setSeverity(FacesMessage.SEVERITY_ERROR);
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, errorMessage);
+		}
+		sortAscending();
+		return null;
+	}
+
+	public void editProduct() {
+		isEditable = true;
+	}
+	
+	public void saveProdcut() {
+		isEditable = false;
+	}
+	
+	public String getProductId() {
+		return productId;
+	}
+
+	public String getProductName() {
+		return productName;
+	}
+
+	public Double getProductPrice() {
+		return productPrice;
+	}
+
+	public String getProductDesc() {
+		return productDesc;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setProductId(String productId) {
+		this.productId = productId;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+
+	public void setProductPrice(Double productPrice) {
+		this.productPrice = productPrice;
+	}
+
+	public void setProductDesc(String productDesc) {
+		this.productDesc = productDesc;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	
+	public String editAction(Product product) {
+	    
+		product.setEditable(true);
+		return null;
+	}
+	
+	private void sortAscending() {
+		Collections.sort(productList, new Comparator<Product>() {
+			@Override
+			public int compare(Product p1, Product p2) {
+				return p1.getProductId().compareTo(p2.getProductId());
+			}
+		});
+	}
+
+	private void validateProduct(Product p) {
+		Double d = Double.parseDouble(p.getQuantity()+"");
+	}
+	public String saveAction(Product p) {
+	    for (Product product : getProductList()){
+	    	product.setEditable(false);
+		}
+	    productList = productmanipulation.updateProducttoDb(p);
+	    sortAscending();
+	    return null;
+	}
+	
+	public void add() {
+		this.isAddProductSection=true;
+	}
+	
+	public boolean isAddProductSection() {
+		return isAddProductSection;
+	}
+}

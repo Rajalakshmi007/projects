@@ -1,0 +1,127 @@
+2018-12-10 15:23:11 INFO  DBConnection:165 - sakila
+2018-12-10 15:23:11 INFO  DBConnection:165 - sys
+2018-12-10 15:23:11 INFO  DBConnection:162 - Database : ticketresolutiondb already exists
+2018-12-10 15:23:11 INFO  DBConnection:174 - Table : issue already exists
+2018-12-10 15:23:11 INFO  DBConnection:174 - Table : employee already exists
+2018-12-10 15:23:11 INFO  DBConnection:174 - Table : issuetracker already exists
+2018-12-10 15:23:11 INFO  DBConnection:174 - Table : solution already exists
+2018-12-10 15:23:11 INFO  DBConnection:45 - Required database and tables created
+2018-12-10 15:23:11 INFO  DBConnection:81 - preparing to  generate issueassigneewise report ... 
+2018-12-10 15:23:11 INFO  DBConnection:86 - Assignee wise report query 
+ SELECT * FROM IssueTracker issuetracker join Issue issue ON issuetracker.IssueID = issue.IssueID and issuetracker.AssignedTo="aravind" JOIN Employee employee ON issuetracker.EmpID = employee.EmpID
+2018-12-10 15:23:11 INFO  DBConnection:52 - Solution query 
+ SELECT * FROM Solution WHERE IssueID="ISSUE_4"
+2018-12-10 15:23:11 INFO  DBConnection:52 - Solution query 
+ SELECT * FROM Solution WHERE IssueID="ISSUE_3"
+2018-12-10 15:23:11 INFO  DBConnection:90 - checking REPORT SIZE : 2
+2018-12-10 15:23:11 INFO  DBConnection:36 - -----------------------------------------------------------
+2018-12-10 15:23:11 INFO  DBConnection:37 - GENERATED REPORT
+2018-12-10 15:23:11 INFO  DBConnection:38 - -----------------------------------------------------------
+2018-12-10 15:23:11 INFO  DBConnection:39 - REPORT SIZE : 2
+2018-12-10 15:23:11 INFO  DBConnection:42 - msg : 
+0003	kapil	ISSUE_4	2018-12-10 09:36:00.0	2018-12-11 09:36:00.0	2018-12-10 15:14:00	Aravind	0 days 5:38:0	CRITICAL	FIXED	n/w	VDI	network slowness	[  , keep posting ]
+2018-12-10 15:23:11 INFO  DBConnection:42 - msg : 
+priya	priya	ISSUE_3	2018-12-10 09:04:00.0	2018-12-12 09:04:00.0	2018-12-10 15:01:00	Aravind	0 days 5:57:0	MAJOR	FIXED	s/w	VDI	VDI slow	[  , dffggg ]
+2018-12-10 15:23:11 INFO  DBConnection:44 - -----------------------------------------------------------
+2018-12-10 15:23:11 INFO  DBConnection:192 - Closing database connection 
+2018-12-10 15:23:11 INFO  DBConnection:204 - Closing database connection 
+2018-12-10 15:23:26 INFO  DBConnection:43 - Db properties loaded successfully
+2018-12-10 15:23:26 INFO  DBConnection:165 - information_schema
+2018-12-10 15:23:26 INFO  DBConnection:165 - mysql
+2018-12-10 15:23:26 INFO  DBConnection:165 - performance_schema
+2018-12-10 15:23:26 INFO  DBConnection:165 - sakila
+2018-12-10 15:23:26 INFO  DBConnection:165 - sys
+2018-12-10 15:23:26 INFO  DBConnection:162 - Database : ticketresolutiondb already exists
+2018-12-10 15:23:26 INFO  DBConnection:174 - Table : issue already exists
+2018-12-10 15:23:26 INFO  DBConnection:174 - Table : employee already exists
+2018-12-10 15:23:26 INFO  DBConnection:174 - Table : issuetracker already exists
+2018-12-10 15:23:26 INFO  DBConnection:174 - Table : solution already exists
+2018-12-10 15:23:26 INFO  DBConnection:45 - Required database and tables created
+2018-12-10 15:23:26 INFO  DBConnection:98 - preparing to  generate statuswise report ... 
+2018-12-10 15:23:26 INFO  DBConnection:102 - status wise report query 
+ SELECT * FROM IssueTracker issuetracker join Issue issue ON issuetracker.IssueID = issue.IssueID and issuetracker.Status="IN_PROGRESS" JOIN Employee employee ON issuetracker.EmpID = employee.EmpID
+2018-12-10 15:23:26 INFO  DBConnection:52 - Solution query 
+ SELECT * FROM Solution WHERE IssueID="ISSUE_1"
+2018-12-10 15:23:26 INFO  DBConnection:90 - checking REPORT SIZE : 1
+2018-12-10 15:23:26 INFO  DBConnection:36 - -----------------------------------------------------------
+2018-12-10 15:23:26 INFO  DBConnection:37 - GENERATED REPORT
+2018-12-10 15:23:26 INFO  DBConnection:38 - -----------------------------------------------------------
+2018-12-10 15:23:26 INFO  DBConnection:39 - REPORT SIZE : 1
+2018-12-10 15:23:26 INFO  DBConnection:42 - msg : 
+emp01	devi	ISSUE_1	2018-11-11 09:36:00.0	2018-11-13 09:36:00.0	NOT_RESOLVED	rocky	NOT_FIXED_YET	MINOR	IN_PROGRESS	s/w	Eclipse	eclipse not working	[  , no sol , clean and restart eclipse. ]
+2018-12-10 15:23:26 INFO  DBConnection:44 - -----------------------------------------------------------
+2018-12-10 15:23:26 INFO  DBConnection:192 - Closing database connection 
+2018-12-10 15:23:26 INFO  DBConnection:204 - Closing database connection 
+2018-12-10 15:23:38 INFO  DBConnection:43 - Db properties loaded successfully
+2018-12-10 15:23:38 INFO  DBConnection:165 - information_schema
+2018-12-10 15:23:38 INFO  DBConnection:165 - mysql
+2018-12-10 15:23:38 INFO  DBConnection:165 - performance_schema
+2018-12-10 15:23:38 INFO  DBConnection:165 - sakila
+2018-12-10 15:23:38 INFO  DBConnection:165 - sys
+2018-12-10 15:23:38 INFO  DBConnection:162 - Database : ticketresolutiondb already exists
+2018-12-10 15:23:38 INFO  DBConnection:174 - Table : issue already exists
+2018-12-10 15:23:38 INFO  DBConnection:174 - Table : employee already exists
+2018-12-10 15:23:38 INFO  DBConnection:174 - Table : issuetracker already exists
+2018-12-10 15:23:38 INFO  DBConnection:174 - Table : solution already exists
+2018-12-10 15:23:38 INFO  DBConnection:45 - Required database and tables created
+2018-12-10 15:23:38 INFO  DBConnection:98 - preparing to  generate statuswise report ... 
+2018-12-10 15:23:38 INFO  DBConnection:102 - status wise report query 
+ SELECT * FROM IssueTracker issuetracker join Issue issue ON issuetracker.IssueID = issue.IssueID and issuetracker.Status="FIXED" JOIN Employee employee ON issuetracker.EmpID = employee.EmpID
+2018-12-10 15:23:38 INFO  DBConnection:52 - Solution query 
+ SELECT * FROM Solution WHERE IssueID="ISSUE_4"
+2018-12-10 15:23:38 INFO  DBConnection:52 - Solution query 
+ SELECT * FROM Solution WHERE IssueID="ISSUE_2"
+2018-12-10 15:23:38 INFO  DBConnection:52 - Solution query 
+ SELECT * FROM Solution WHERE IssueID="ISSUE_3"
+2018-12-10 15:23:38 INFO  DBConnection:90 - checking REPORT SIZE : 3
+2018-12-10 15:23:38 INFO  DBConnection:36 - -----------------------------------------------------------
+2018-12-10 15:23:38 INFO  DBConnection:37 - GENERATED REPORT
+2018-12-10 15:23:38 INFO  DBConnection:38 - -----------------------------------------------------------
+2018-12-10 15:23:38 INFO  DBConnection:39 - REPORT SIZE : 3
+2018-12-10 15:23:38 INFO  DBConnection:42 - msg : 
+0003	kapil	ISSUE_4	2018-12-10 09:36:00.0	2018-12-11 09:36:00.0	2018-12-10 15:14:00	Aravind	0 days 5:38:0	CRITICAL	FIXED	n/w	VDI	network slowness	[  , keep posting ]
+2018-12-10 15:23:38 INFO  DBConnection:42 - msg : 
+emp03	devi	ISSUE_2	2018-11-11 11:34:00.0	2018-11-21 11:34:00.0	2018-11-11 17:07:00	priya	0 days 5:33:0	MAJOR	FIXED	h/w	Mysql	Mysql stopped 	[  , turn off firewall ]
+2018-12-10 15:23:38 INFO  DBConnection:42 - msg : 
+priya	priya	ISSUE_3	2018-12-10 09:04:00.0	2018-12-12 09:04:00.0	2018-12-10 15:01:00	Aravind	0 days 5:57:0	MAJOR	FIXED	s/w	VDI	VDI slow	[  , dffggg ]
+2018-12-10 15:23:38 INFO  DBConnection:44 - -----------------------------------------------------------
+2018-12-10 15:23:38 INFO  DBConnection:192 - Closing database connection 
+2018-12-10 15:23:38 INFO  DBConnection:204 - Closing database connection 
+2018-12-10 15:24:55 INFO  DBConnection:43 - Db properties loaded successfully
+2018-12-10 15:24:55 INFO  DBConnection:165 - information_schema
+2018-12-10 15:24:55 INFO  DBConnection:165 - mysql
+2018-12-10 15:24:55 INFO  DBConnection:165 - performance_schema
+2018-12-10 15:24:55 INFO  DBConnection:165 - sakila
+2018-12-10 15:24:55 INFO  DBConnection:165 - sys
+2018-12-10 15:24:55 INFO  DBConnection:162 - Database : ticketresolutiondb already exists
+2018-12-10 15:24:55 INFO  DBConnection:174 - Table : issue already exists
+2018-12-10 15:24:55 INFO  DBConnection:174 - Table : employee already exists
+2018-12-10 15:24:55 INFO  DBConnection:174 - Table : issuetracker already exists
+2018-12-10 15:24:55 INFO  DBConnection:174 - Table : solution already exists
+2018-12-10 15:24:55 INFO  DBConnection:45 - Required database and tables created
+2018-12-10 15:24:55 INFO  DBConnection:485 - com.ticketresolution.controller.IssueTrackerController Deleting issue
+2018-12-10 15:24:55 INFO  DBConnection:253 - com.ticketresolution.db.DBManipulation : Checking whether the issue is valid
+2018-12-10 15:24:55 DEBUG DBConnection:256 - com.ticketresolution.controller.IssueTrackerController : Formatting the date to standard format 
+2018-12-10 15:24:55 INFO  DBConnection:381 - Going to delete issue with ID : ISSUE_2 datet created : 2018-11-11 11:34:00
+2018-12-10 15:24:55 INFO  DBConnection:384 - delete issue query 
+ DELETE FROM IssueTracker WHERE IssueID="ISSUE_2" and EmpID="emp03" and DateCreated="2018-11-11 11:34:00"
+2018-12-10 15:24:55 INFO  DBConnection:408 - Total issue deleted : 1
+2018-12-10 15:24:55 INFO  DBConnection:412 - Total solution deleted : 1
+2018-12-10 15:24:55 INFO  DBConnection:422 - Total employee deleted : 1
+2018-12-10 15:24:55 INFO  DBConnection:425 - deleted issue successfully : 1
+2018-12-10 15:24:55 INFO  DBConnection:501 - Deleted successfully
+2018-12-10 15:24:55 INFO  DBConnection:204 - Closing database connection 
+2018-12-10 15:24:55 INFO  DBConnection:377 - Database connection closed successfully 
+2018-12-10 15:25:06 INFO  DBConnection:43 - Db properties loaded successfully
+2018-12-10 15:25:06 INFO  DBConnection:165 - information_schema
+2018-12-10 15:25:06 INFO  DBConnection:165 - mysql
+2018-12-10 15:25:06 INFO  DBConnection:165 - performance_schema
+2018-12-10 15:25:06 INFO  DBConnection:165 - sakila
+2018-12-10 15:25:06 INFO  DBConnection:165 - sys
+2018-12-10 15:25:06 INFO  DBConnection:162 - Database : ticketresolutiondb already exists
+2018-12-10 15:25:06 INFO  DBConnection:174 - Table : issue already exists
+2018-12-10 15:25:06 INFO  DBConnection:174 - Table : employee already exists
+2018-12-10 15:25:06 INFO  DBConnection:174 - Table : issuetracker already exists
+2018-12-10 15:25:06 INFO  DBConnection:174 - Table : solution already exists
+2018-12-10 15:25:06 INFO  DBConnection:45 - Required database and tables created
+2018-12-10 15:25:06 INFO  DBConnection:64 - preparing to  generate userwise report ... 

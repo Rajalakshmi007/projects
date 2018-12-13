@@ -1,0 +1,18 @@
+package com.ticket.serviceclient;
+
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.Response;
+
+public class ReportGeneratorClient {
+	
+	public static void main(String[] args) {
+		Client client = ClientBuilder.newClient();
+		WebTarget target = client.target("http://localhost:8080/TicketResolutionWebApplicationJSP/rest/GenerateReportService");
+		target.path("statusReport");
+		target.queryParam("status", "FIXED");
+		Response responseReports = target.request().get();
+	}
+
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Generate StatusWise Report</title>
+<link rel="stylesheet" type="text/css" href="issue.css">
+</head>
+<body>
+<h1 id="system" style="color:blue;">TICKET RESOLUTION SYSTEM</h1>
+<div>
+<form action="/GenerateStatusWiseReportServlet" method="get">
+	<h2>GENERATE ISSUETYPEWISE REPORT</h2>
+	<label>IssueType: </label>
+	<input list="issuetype" name="issueType" required>
+  	<datalist id="issuetype">
+    <option value="s/w">
+    <option value="h/w">
+    <option value="n/w">
+    </datalist>
+ 	<input type="hidden" name="htmlname" value="IssueTypeWise" />
+  	<input id="button" type="submit" value="Generate Report">
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+package com.ticketresolution.service;
+
+import javax.ws.rs.Path;
+
+@Path("/GenerateReportService")
+public class ReportGenerationService {
+
+	
+	public void getUserWiseReport() {
+		
+	}
+}

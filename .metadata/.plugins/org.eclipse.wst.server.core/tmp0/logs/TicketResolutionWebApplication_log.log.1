@@ -1,0 +1,127 @@
+2018-12-13 00:26:15 INFO  DBConnection:42 - msg : 
+priya	priya	ISSUE_3	2018-12-10 09:04:00.0	2018-12-12 09:04:00.0	2018-12-10 15:01:00	Aravind	0 days 5:57:0	MAJOR	FIXED	s/w	VDI	VDI slow	[  , dffggg ]
+2018-12-13 00:26:15 INFO  DBConnection:44 - -----------------------------------------------------------
+2018-12-13 01:22:26 INFO  DBConnection:43 - Db properties loaded successfully
+2018-12-13 01:22:26 INFO  DBConnection:165 - information_schema
+2018-12-13 01:22:26 INFO  DBConnection:165 - mysql
+2018-12-13 01:22:26 INFO  DBConnection:165 - performance_schema
+2018-12-13 01:22:26 INFO  DBConnection:165 - productmanagementsystem
+2018-12-13 01:22:26 INFO  DBConnection:165 - sakila
+2018-12-13 01:22:26 INFO  DBConnection:165 - sys
+2018-12-13 01:22:26 INFO  DBConnection:162 - Database : ticketresolutiondb already exists
+2018-12-13 01:22:26 INFO  DBConnection:174 - Table : issue already exists
+2018-12-13 01:22:26 INFO  DBConnection:174 - Table : employee already exists
+2018-12-13 01:22:26 INFO  DBConnection:174 - Table : issuetracker already exists
+2018-12-13 01:22:26 INFO  DBConnection:174 - Table : solution already exists
+2018-12-13 01:22:26 INFO  DBConnection:45 - Required database and tables created
+2018-12-13 01:22:26 INFO  DBConnection:98 - preparing to  generate statuswise report ... 
+2018-12-13 01:22:26 INFO  DBConnection:102 - status wise report query 
+ SELECT * FROM IssueTracker issuetracker join Issue issue ON issuetracker.IssueID = issue.IssueID and issuetracker.Status="FIXED" JOIN Employee employee ON issuetracker.EmpID = employee.EmpID
+2018-12-13 01:22:26 INFO  DBConnection:52 - Solution query 
+ SELECT * FROM Solution WHERE IssueID="ISSUE_4"
+2018-12-13 01:22:26 INFO  DBConnection:52 - Solution query 
+ SELECT * FROM Solution WHERE IssueID="ISSUE_3"
+2018-12-13 01:22:26 INFO  DBConnection:90 - checking REPORT SIZE : 2
+2018-12-13 01:22:26 INFO  DBConnection:36 - -----------------------------------------------------------
+2018-12-13 01:22:26 INFO  DBConnection:37 - GENERATED REPORT
+2018-12-13 01:22:26 INFO  DBConnection:38 - -----------------------------------------------------------
+2018-12-13 01:22:26 INFO  DBConnection:39 - REPORT SIZE : 2
+2018-12-13 01:22:26 INFO  DBConnection:42 - msg : 
+0003	kapil	ISSUE_4	2018-12-10 09:36:00.0	2018-12-11 09:36:00.0	2018-12-10 15:14:00	Aravind	0 days 5:38:0	CRITICAL	FIXED	n/w	VDI	network slowness	[  , keep posting ]
+2018-12-13 01:22:26 INFO  DBConnection:42 - msg : 
+priya	priya	ISSUE_3	2018-12-10 09:04:00.0	2018-12-12 09:04:00.0	2018-12-10 15:01:00	Aravind	0 days 5:57:0	MAJOR	FIXED	s/w	VDI	VDI slow	[  , dffggg ]
+2018-12-13 01:22:26 INFO  DBConnection:44 - -----------------------------------------------------------
+2018-12-13 01:22:46 INFO  DBConnection:43 - Db properties loaded successfully
+2018-12-13 01:22:46 INFO  DBConnection:165 - information_schema
+2018-12-13 01:22:46 INFO  DBConnection:165 - mysql
+2018-12-13 01:22:46 INFO  DBConnection:165 - performance_schema
+2018-12-13 01:22:46 INFO  DBConnection:165 - productmanagementsystem
+2018-12-13 01:22:46 INFO  DBConnection:165 - sakila
+2018-12-13 01:22:46 INFO  DBConnection:165 - sys
+2018-12-13 01:22:46 INFO  DBConnection:162 - Database : ticketresolutiondb already exists
+2018-12-13 01:22:46 INFO  DBConnection:174 - Table : issue already exists
+2018-12-13 01:22:46 INFO  DBConnection:174 - Table : employee already exists
+2018-12-13 01:22:46 INFO  DBConnection:174 - Table : issuetracker already exists
+2018-12-13 01:22:46 INFO  DBConnection:174 - Table : solution already exists
+2018-12-13 01:22:46 INFO  DBConnection:45 - Required database and tables created
+2018-12-13 01:22:46 INFO  DBConnection:98 - preparing to  generate statuswise report ... 
+2018-12-13 01:22:46 INFO  DBConnection:102 - status wise report query 
+ SELECT * FROM IssueTracker issuetracker join Issue issue ON issuetracker.IssueID = issue.IssueID and issuetracker.Status="FIXED" JOIN Employee employee ON issuetracker.EmpID = employee.EmpID
+2018-12-13 01:22:46 INFO  DBConnection:52 - Solution query 
+ SELECT * FROM Solution WHERE IssueID="ISSUE_4"
+2018-12-13 01:22:46 INFO  DBConnection:52 - Solution query 
+ SELECT * FROM Solution WHERE IssueID="ISSUE_3"
+2018-12-13 01:22:46 INFO  DBConnection:90 - checking REPORT SIZE : 2
+2018-12-13 01:22:46 INFO  DBConnection:36 - -----------------------------------------------------------
+2018-12-13 01:22:46 INFO  DBConnection:37 - GENERATED REPORT
+2018-12-13 01:22:46 INFO  DBConnection:38 - -----------------------------------------------------------
+2018-12-13 01:22:46 INFO  DBConnection:39 - REPORT SIZE : 2
+2018-12-13 01:22:46 INFO  DBConnection:42 - msg : 
+0003	kapil	ISSUE_4	2018-12-10 09:36:00.0	2018-12-11 09:36:00.0	2018-12-10 15:14:00	Aravind	0 days 5:38:0	CRITICAL	FIXED	n/w	VDI	network slowness	[  , keep posting ]
+2018-12-13 01:22:46 INFO  DBConnection:42 - msg : 
+priya	priya	ISSUE_3	2018-12-10 09:04:00.0	2018-12-12 09:04:00.0	2018-12-10 15:01:00	Aravind	0 days 5:57:0	MAJOR	FIXED	s/w	VDI	VDI slow	[  , dffggg ]
+2018-12-13 01:22:46 INFO  DBConnection:44 - -----------------------------------------------------------
+2018-12-13 01:22:55 INFO  DBConnection:43 - Db properties loaded successfully
+2018-12-13 01:22:55 INFO  DBConnection:165 - information_schema
+2018-12-13 01:22:55 INFO  DBConnection:165 - mysql
+2018-12-13 01:22:55 INFO  DBConnection:165 - performance_schema
+2018-12-13 01:22:55 INFO  DBConnection:165 - productmanagementsystem
+2018-12-13 01:22:55 INFO  DBConnection:165 - sakila
+2018-12-13 01:22:55 INFO  DBConnection:165 - sys
+2018-12-13 01:22:55 INFO  DBConnection:162 - Database : ticketresolutiondb already exists
+2018-12-13 01:22:55 INFO  DBConnection:174 - Table : issue already exists
+2018-12-13 01:22:55 INFO  DBConnection:174 - Table : employee already exists
+2018-12-13 01:22:55 INFO  DBConnection:174 - Table : issuetracker already exists
+2018-12-13 01:22:55 INFO  DBConnection:174 - Table : solution already exists
+2018-12-13 01:22:55 INFO  DBConnection:45 - Required database and tables created
+2018-12-13 01:22:55 INFO  DBConnection:98 - preparing to  generate statuswise report ... 
+2018-12-13 01:22:55 INFO  DBConnection:102 - status wise report query 
+ SELECT * FROM IssueTracker issuetracker join Issue issue ON issuetracker.IssueID = issue.IssueID and issuetracker.Status="FIXED" JOIN Employee employee ON issuetracker.EmpID = employee.EmpID
+2018-12-13 01:22:55 INFO  DBConnection:52 - Solution query 
+ SELECT * FROM Solution WHERE IssueID="ISSUE_4"
+2018-12-13 01:22:55 INFO  DBConnection:52 - Solution query 
+ SELECT * FROM Solution WHERE IssueID="ISSUE_3"
+2018-12-13 01:22:55 INFO  DBConnection:90 - checking REPORT SIZE : 2
+2018-12-13 01:22:55 INFO  DBConnection:36 - -----------------------------------------------------------
+2018-12-13 01:22:55 INFO  DBConnection:37 - GENERATED REPORT
+2018-12-13 01:22:55 INFO  DBConnection:38 - -----------------------------------------------------------
+2018-12-13 01:22:55 INFO  DBConnection:39 - REPORT SIZE : 2
+2018-12-13 01:22:55 INFO  DBConnection:42 - msg : 
+0003	kapil	ISSUE_4	2018-12-10 09:36:00.0	2018-12-11 09:36:00.0	2018-12-10 15:14:00	Aravind	0 days 5:38:0	CRITICAL	FIXED	n/w	VDI	network slowness	[  , keep posting ]
+2018-12-13 01:22:55 INFO  DBConnection:42 - msg : 
+priya	priya	ISSUE_3	2018-12-10 09:04:00.0	2018-12-12 09:04:00.0	2018-12-10 15:01:00	Aravind	0 days 5:57:0	MAJOR	FIXED	s/w	VDI	VDI slow	[  , dffggg ]
+2018-12-13 01:22:55 INFO  DBConnection:44 - -----------------------------------------------------------
+2018-12-13 01:31:38 INFO  DBConnection:43 - Db properties loaded successfully
+2018-12-13 01:31:38 INFO  DBConnection:165 - information_schema
+2018-12-13 01:31:38 INFO  DBConnection:165 - mysql
+2018-12-13 01:31:38 INFO  DBConnection:165 - performance_schema
+2018-12-13 01:31:38 INFO  DBConnection:165 - productmanagementsystem
+2018-12-13 01:31:38 INFO  DBConnection:165 - sakila
+2018-12-13 01:31:38 INFO  DBConnection:165 - sys
+2018-12-13 01:31:38 INFO  DBConnection:162 - Database : ticketresolutiondb already exists
+2018-12-13 01:31:38 INFO  DBConnection:174 - Table : issue already exists
+2018-12-13 01:31:38 INFO  DBConnection:174 - Table : employee already exists
+2018-12-13 01:31:38 INFO  DBConnection:174 - Table : issuetracker already exists
+2018-12-13 01:31:38 INFO  DBConnection:174 - Table : solution already exists
+2018-12-13 01:31:38 INFO  DBConnection:45 - Required database and tables created
+2018-12-13 01:31:38 INFO  DBConnection:98 - preparing to  generate statuswise report ... 
+2018-12-13 01:31:38 INFO  DBConnection:102 - status wise report query 
+ SELECT * FROM IssueTracker issuetracker join Issue issue ON issuetracker.IssueID = issue.IssueID and issuetracker.Status="FIXED" JOIN Employee employee ON issuetracker.EmpID = employee.EmpID
+2018-12-13 01:31:38 INFO  DBConnection:52 - Solution query 
+ SELECT * FROM Solution WHERE IssueID="ISSUE_4"
+2018-12-13 01:31:38 INFO  DBConnection:52 - Solution query 
+ SELECT * FROM Solution WHERE IssueID="ISSUE_3"
+2018-12-13 01:31:38 INFO  DBConnection:90 - checking REPORT SIZE : 2
+2018-12-13 01:31:38 INFO  DBConnection:36 - -----------------------------------------------------------
+2018-12-13 01:31:38 INFO  DBConnection:37 - GENERATED REPORT
+2018-12-13 01:31:38 INFO  DBConnection:38 - -----------------------------------------------------------
+2018-12-13 01:31:38 INFO  DBConnection:39 - REPORT SIZE : 2
+2018-12-13 01:31:38 INFO  DBConnection:42 - msg : 
+0003	kapil	ISSUE_4	2018-12-10 09:36:00.0	2018-12-11 09:36:00.0	2018-12-10 15:14:00	Aravind	0 days 5:38:0	CRITICAL	FIXED	n/w	VDI	network slowness	[  , keep posting ]
+2018-12-13 01:31:38 INFO  DBConnection:42 - msg : 
+priya	priya	ISSUE_3	2018-12-10 09:04:00.0	2018-12-12 09:04:00.0	2018-12-10 15:01:00	Aravind	0 days 5:57:0	MAJOR	FIXED	s/w	VDI	VDI slow	[  , dffggg ]
+2018-12-13 01:31:38 INFO  DBConnection:44 - -----------------------------------------------------------
+2018-12-13 01:33:55 INFO  DBConnection:43 - Db properties loaded successfully
+2018-12-13 01:33:55 INFO  DBConnection:165 - information_schema
+2018-12-13 01:33:55 INFO  DBConnection:165 - mysql
+2018-12-13 01:33:55 INFO  DBConnection:165 - performance_schema

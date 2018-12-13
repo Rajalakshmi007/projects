@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Generate datewise report</title>
+<link rel="stylesheet" type="text/css" href="issue.css">
+<script type="text/javascript" src="includeHtml.js"></script>
+</head>
+<body>
+<h1 id="system" style="color:blue;">TICKET RESOLUTION SYSTEM</h1>
+<div id="include_div" style="width:100%" w3-include-html="headerNavigation.html"></div>
+<div>
+<form action="GenerateStatusWiseReportServlet" method="get">
+	<h2>GENERATE DATEWISE REPORT</h2>
+	<br/>
+	<label>DateCreated: </label>
+ 	<input type="datetime-local" name="datecreated" required><br>
+ 	<input type="hidden" name="htmlname" value="DateWiseReport" />
+ 	<br/>
+  	<input id="button" type="submit" value="Generate Report">
+</form>
+</div>
+<script>
+includeHTML();
+</script>
+</body>
+</html>

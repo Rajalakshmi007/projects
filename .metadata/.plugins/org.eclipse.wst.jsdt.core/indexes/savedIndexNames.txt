@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+D:\goal_2018\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1247140566.index
+935368722.index
+573961610.index
+1331291863.index
+1426697963.index
+496334623.index
+2045524579.index

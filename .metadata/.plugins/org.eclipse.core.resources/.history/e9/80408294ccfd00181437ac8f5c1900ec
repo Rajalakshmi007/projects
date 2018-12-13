@@ -1,0 +1,78 @@
+package com.product.dao;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.product.model.Product;
+import com.ticketresolution.db.DBConnection;
+
+public class ProductManipulation {
+	ProductDao dbconnection = null;
+	List<Product> productList = null;
+	public ProductManipulation() {
+		dbconnection = new ProductDao();
+	}
+	
+	public List<Product> getAllProducts(){
+		Statement statement = null;
+		productList = new ArrayList<Product>();
+		String query = "SELECT * from producttable;";
+		try {
+			statement = ProductDao.connection.createStatement();
+			ResultSet resultset = statement.executeQuery(query);
+			while (resultset.next()) {
+				Product p = new Product();
+				p.setProductId(resultset.getString(1));
+				p.setProductName(resultset.getString(2));
+				p.setProductPrice(new Double(resultset.getString(3)));
+				p.setProductDesc(resultset.getString(4));
+				p.setQuantity(new Integer(resultset.getString(5)));
+				productList.add(p);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return productList;
+	}
+	
+	public List<Product> addProducttoDb(Product p){
+			String addEmployeeQuery = "INSERT INTO " + ProductDao.productTable + " values(\"" + p.getProductId() + "\",\""
+					+ p.getProductName() + "\",\"" + p.getProductPrice() + "\",\""+p.getProductDesc()+"\",\"" + p.getQuantity() +"\")";
+			Statement createStatement = null;
+			int created = 0;
+			try {
+				createStatement = ProductDao.connection.createStatement();
+				created = createStatement.executeUpdate(addEmployeeQuery);
+				/*
+				 * if(created) { DBConnection.DB_LOGGERR.info("inserted employee details : " +
+				 * created); } else { System.out.println("Not inserted employee details  : " +
+				 * created); }
+				 */
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			productList = getAllProducts();
+			return productList;
+	}
+	
+	public List<Product> deleteProductFromDB(String productID){
+		boolean deleted = false;
+		String deleteQuery = "DELETE FROM " + ProductDao.productTable + " WHERE IssueID=\"" + issueID
+				+ "\" and EmpID=\"" + empID + "\" and DateCreated=\"" + dateCreated + "\"";
+
+		Statement createStmt = null;
+		int deletedRows = 0;
+		try {
+			createStmt = ProductDao.connection.createStatement();
+			deletedRows = createStmt.executeUpdate(deleteQuery);
+			if (deletedRows == 0) {
+				return deletedRows;
+			} else {
+				deleted = true;
+			}
+	}
+
+}

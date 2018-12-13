@@ -1,0 +1,37 @@
+package com.product.dao;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.List;
+
+import com.product.model.Product;
+
+public class ProductManipulation {
+	ProductDao dbconnection = null;
+	List<Product> productList = null;
+	public ProductManipulation() {
+		dbconnection = new ProductDao();
+	}
+	
+	public List<Product> getAllProducts(){
+		Statement statement = null;
+		String query = "SELECT * from producttable;";
+		try {
+			statement = ProductDao.connection.createStatement();
+			ResultSet resultset = statement.executeQuery(query);
+			while (resultset.next()) {
+				Product p = new Product();
+				p.setProductId(resultset.getString(1));
+				p.setProductId(resultset.getString(1));
+				p.setProductId(resultset.getString(1));
+				p.setProductId(resultset.getString(1));
+				p.setProductId(resultset.getString(1));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return productList;
+	}
+
+}

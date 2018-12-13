@@ -1,0 +1,25 @@
+
+# Database Driver name
+Driver = com.mysql.jdbc.Driver
+
+# Database Host Name
+Host_Name = india-lakshmir
+
+# Database port number
+DB_Port = 3306
+
+# Database name
+DBNAME =  productmanagementsystem
+
+# Tables
+Table = productdetails
+
+#Table names in database
+productdetails = productdetails
+
+# Database url
+DB_URL = jdbc:mysql://
+
+# Database user name and password
+UserName = rajdev
+Password = Devi007

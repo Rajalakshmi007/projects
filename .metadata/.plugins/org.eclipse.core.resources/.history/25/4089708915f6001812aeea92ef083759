@@ -1,0 +1,10 @@
+package com.ticketresolution.service;
+
+@Path("/GenerateReportService")
+public class ReportGenerationService {
+
+	
+	public void getUserWiseReport() {
+		
+	}
+}

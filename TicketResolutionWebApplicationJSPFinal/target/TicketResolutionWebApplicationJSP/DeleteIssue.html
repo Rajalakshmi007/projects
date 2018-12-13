@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Delete Issue</title>
+<link rel="stylesheet" type="text/css" href="issue.css">
+</head>
+<body>
+<h1 id="system" style="color:blue;">TICKET RESOLUTION SYSTEM</h1>
+<div>
+	<form action="DeleteIssueServlet" method="get">
+		<h2>DELETE ISSUE</h2>
+		<label>Employee ID:</label>
+		<input type="text" name="empId" required><br> 
+		<label>Issue ID:</label>
+		<input type="text" name="issueID" required><br> 
+		<label>Date Created:</label>
+		<input type="datetime-local" name="dateCreated" required><br> 
+		<input type="hidden" name="htmlname" value="deleteissue" /> 
+		<input id="button" type="submit" value="Delete Issue">
+	</form>
+</div>
+</body>
+</html>

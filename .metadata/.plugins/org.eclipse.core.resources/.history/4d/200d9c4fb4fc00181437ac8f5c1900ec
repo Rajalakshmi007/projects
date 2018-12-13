@@ -1,0 +1,74 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+   	  xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+<title>Product Management System</title>
+<h:outputStylesheet library = "css" name = "style.css"  />
+</h:head>
+<h:body>
+<h2>PRODUCT MANAGEMENT SYSTEM</h2>
+<h:form class="formm">
+	<h:panelGroup update="dataTablePanel">
+	<h:dataTable value="#{productMgmtImpl.productList}" var="prodcut"
+			styleClass = "employeeTable"
+            headerClass = "employeeTableHeader"
+            rowClasses = "employeeTableOddRow,employeeTableEvenRow"
+	>
+	<h:column>
+	<f:facet name="header">Product ID</f:facet>
+	#{prodcut.productId}
+	</h:column>
+	<h:column>
+	<f:facet name="header">Name</f:facet>
+	#{prodcut.productId}
+	</h:column>
+	<h:column>
+	<f:facet name="header">Price</f:facet>
+	#{prodcut.productPrice}
+	</h:column>
+	<h:column>
+	<f:facet name="header">Description</f:facet>
+	#{prodcut.productDesc}
+	</h:column>
+	<h:column>
+	<f:facet name="header">Quantity</f:facet>
+	#{prodcut.quantity}
+	</h:column>
+	<h:column>
+    <f:facet name="header">Delete</f:facet>
+	<h:commandButton action="#{productMgmtImpl.deleteProduct(prodcut)}" value="Delete Product"></h:commandButton>
+	</h:column>
+	<h:column>
+	<f:facet name="header">Edit</f:facet>
+	<h:commandButton action="#{productMgmtImpl.editProduct(product)}" value="Edit"></h:commandButton>
+	</h:column>
+	</h:dataTable>
+	</h:panelGroup>
+	<br/>
+	<h2> ADD NEW PRODUCT</h2>
+	
+	<h:outputLabel>Product ID 	:</h:outputLabel>
+	<h:inputText value="#{productMgmtImpl.productId}"></h:inputText>
+	<br/>
+	<br/>
+	<h:outputLabel>Name		:</h:outputLabel>
+	<h:inputText value="#{productMgmtImpl.productName}"></h:inputText>
+	<br/>
+	<br/>
+	<h:outputLabel>Price 	:</h:outputLabel>
+	<h:inputText value="#{productMgmtImpl.productPrice}"></h:inputText>
+	<br/>
+	<br/>
+	<h:outputLabel>Description 	:</h:outputLabel>
+	<h:inputText value="#{productMgmtImpl.productDesc}"></h:inputText>
+	<br/>
+	<br/>
+	<h:outputLabel>Quantity 	:</h:outputLabel>
+	<h:inputText value="#{productMgmtImpl.quantity}"></h:inputText>
+	<br/>
+	<br/>
+	<h:commandButton value="Add Product" action="#{productMgmtImpl.addProduct}">
+	</h:commandButton>
+	</h:form>
+</h:body>
+</html>

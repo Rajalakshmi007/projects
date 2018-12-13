@@ -1,0 +1,12 @@
+package com.product.dao;
+
+public class ProductManipulation {
+	ProductDao dbconnection = null;
+	List<Product> productList = null;
+	public ProductManipulation() {
+		dbconnection = new ProductDao();
+	}
+	
+	public 
+
+}

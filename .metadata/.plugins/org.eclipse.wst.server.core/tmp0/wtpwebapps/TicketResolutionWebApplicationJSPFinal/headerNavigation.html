@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+	margin: 0;
+	padding: 0;
+}
+
+nav {
+	margin-top: 10px;
+	width: 100%;
+	height: 60px;
+	background-color: black;
+}
+.menu{
+	float: left;
+}
+
+.menu-sublist {
+	float: left;
+	list-style: none;
+	position: relative;
+	padding: 12px 12px;
+}
+
+.menu-item{
+	font-family: sans-serif;
+	color: #ffffff;
+	font-size: large;
+	padding: 12px 14px;
+	text-decoration: none;
+	display: block;
+}
+
+
+.sub-menu{
+	display: none;
+	position: absolute;
+	background-color: #b0c4de;
+	border-radius: 4px;
+}
+
+.submenu-list{
+	width: 180px;
+	list-style: none;
+}
+
+.menu-sublist:hover ul{
+	display: block;
+}
+
+.submenu-item{
+	font-family: sans-serif;
+	font-color: white;
+	font-size: medium;
+	padding: 8px 10px;
+	text-decoration: none;
+	display: block;
+	
+}
+
+.submenu-item:hover{
+	background-color: #48C9B0;
+}
+
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+	<nav>
+
+		<ul class="menu">
+			<li class="menu-sublist"><a class="menu-item" href="#">Employee</a>
+				<ul class="sub-menu">
+					<li class="submenu-list"><a class="submenu-item" href="AddEmployee.html" target="_self">Add Employee</a></li>
+				</ul>
+			</li>
+			<li class="menu-sublist"><a class="menu-item" href="#">Issue</a>
+				<ul class="sub-menu">
+					<li class="submenu-list"><a class="submenu-item" href="AddIssue.html">Add Issue</a></li>
+					<li class="submenu-list"><a class="submenu-item" href="UpdateIssue.html">Update Issue</a></li>
+					<li class="submenu-list"><a class="submenu-item" href="DeleteIssue.html">Delete Issue</a></li>
+					<li class="submenu-list"><a class="submenu-item" href="AddSolution.html">Add Solution</a></li>
+				</ul>
+			</li>
+			<li class="menu-sublist"><a class="menu-item" href="#">Generate Report</a>
+				<ul class="sub-menu">
+					<li class="submenu-list"><a class="submenu-item" href="DateWiseReport.html">DateWise Report</a></li>
+					<li class="submenu-list"><a class="submenu-item" href="UserWiseReport.html">UserWise report</a></li>
+					<li class="submenu-list"><a class="submenu-item" href="IssueTypeWise.html">IssueTypeWise Report</a></li>
+					<li class="submenu-list"><a class="submenu-item" href="PriorityWiseReport.html">PriorityWise Report</a></li>
+					<li class="submenu-list"><a class="submenu-item" href="AssigneeWiseReport.html">AssigneeWise Report</a></li>
+					<li class="submenu-list"><a class="submenu-item" href="StatusReport.html">StatusWise Report</a></li>
+				</ul>
+			</li>
+			<li class="menu-sublist">
+				<a class="menu-item" href="index.html"><i class="fa fa-home"></i></a>
+			</li>
+		</ul>
+
+	</nav>
+
+
+</body>
+</html>

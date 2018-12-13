@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Generate prioritywise report</title>
+<link rel="stylesheet" type="text/css" href="issue.css">
+<script type="text/javascript" src="includeHtml.js"></script>
+</head>
+<body>
+<h1 id="system" style="color:blue;">TICKET RESOLUTION SYSTEM</h1>
+<div id="include_div" style="width:100%" w3-include-html="headerNavigation.html"></div>
+<div>
+<form action="GenerateStatusWiseReportServlet" method="get">
+	<h2>GENERATE PRIORITYWISE REPORT</h2>
+	<br/>
+	<label>Priority: </label>
+	<input list="priority_id" name="priority" required>
+  	<datalist id="priority_id">
+    <option value="MINOR">
+    <option value="MAJOR">
+    <option value="CRITICAL">
+    </datalist>
+ 	<input type="hidden" name="htmlname" value="PriorityWiseReport" />
+ 	<br/>
+  	<input id="button" type="submit" value="Generate Report">
+</form>
+</div>
+<script>
+includeHTML();
+</script>
+</body>
+</html>

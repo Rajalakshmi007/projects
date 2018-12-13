@@ -1,0 +1,5 @@
+package com.ticketresolution.service;
+
+public class ReportGenerationService {
+
+}

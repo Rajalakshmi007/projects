@@ -1,0 +1,8 @@
+127.0.0.1 - - [19/Oct/2018:00:00:13 +0530] "GET / HTTP/1.1" 404 1070
+0:0:0:0:0:0:0:1 - - [19/Oct/2018:00:00:14 +0530] "GET /ProductManagementSystem/index.jsf HTTP/1.1" 200 1401
+0:0:0:0:0:0:0:1 - - [19/Oct/2018:00:00:19 +0530] "GET /ProductManagementSystem/index.jsf HTTP/1.1" 200 1401
+0:0:0:0:0:0:0:1 - - [19/Oct/2018:00:00:19 +0530] "GET /ProductManagementSystem/javax.faces.resource/style.css.jsf?ln=css HTTP/1.1" 200 438
+0:0:0:0:0:0:0:1 - - [19/Oct/2018:00:00:23 +0530] "GET /ProductManagementSystem/index.jsf HTTP/1.1" 200 1401
+0:0:0:0:0:0:0:1 - - [19/Oct/2018:00:01:32 +0530] "GET /ProductManagementSystem/index.jsf HTTP/1.1" 200 1401
+127.0.0.1 - - [19/Oct/2018:00:01:58 +0530] "GET / HTTP/1.1" 404 1070
+0:0:0:0:0:0:0:1 - - [19/Oct/2018:00:01:59 +0530] "GET /ProductManagementSystem/index.jsf HTTP/1.1" 200 1401

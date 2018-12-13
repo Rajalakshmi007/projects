@@ -1,0 +1,196 @@
+package com.product.dao;
+
+import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ResourceBundle;
+
+
+public class ProductDao {
+	//static final Logger //DB_LOGGERR = Logger.getLogger(DBConnection.class.getName());
+	//private static Properties dbProperties = new Properties();
+	private static String driverName = null;
+	private static String url = null;
+	private static String hostName = null;
+	private static String port = null;
+	private static String userName = null;
+	private static String passWord = null;
+	private static String tables = null;
+	static String productTable = null;
+	static String issueTable = null;
+	static String solutionTable = null;
+	static String issueTrackerTable = null;
+	private static final String DB_PROPERTIES_LOCATION = "db";
+	private static String dbName = null;
+	static Connection connection = null;
+	private static InputStream input = null;
+	private static DatabaseMetaData dbmetadata = null;
+
+	public ProductDao() {
+		setDBProperties();
+		//DB_LOGGERR.info("Db properties loaded successfully");
+		prepareDB();
+		//DB_LOGGERR.info("Required database and tables created");
+		/*
+		 * try { con.close(); //DB_LOGGERR.info("Database connection closed "); } catch
+		 * (SQLException e) {
+		 * 
+		 * e.printStackTrace(); }
+		 */
+	}
+
+	/**
+	 * Loads database properties from db.properties file
+	 */
+	public static void setDBProperties() {
+		ResourceBundle dbProperties = ResourceBundle.getBundle(DB_PROPERTIES_LOCATION);
+		driverName = dbProperties.getString("Driver");
+		dbName = dbProperties.getString("DBNAME");
+		tables = dbProperties.getString("Table");
+		productTable = dbProperties.getString("productTable");
+		hostName = dbProperties.getString("Host_Name");
+		port = dbProperties.getString("DB_Port");
+		url = dbProperties.getString("DB_URL") + hostName + ":" + port;
+		userName = dbProperties.getString("UserName");
+		passWord = dbProperties.getString("Password");
+		//input.close();
+		getDBConnection();
+	}
+
+	public static void getDBConnection() {
+		try {
+			Class.forName(driverName);
+			connection = DriverManager.getConnection(url, userName, passWord);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * @param tableName
+	 *            Table to be created in ticket
+	 */
+	static void prepareTables(String tableName) {
+		/*
+		 * switch(tableName) {
+		 * 
+		 * }
+		 */
+
+		String createTableQuery = null;
+		if (tableName.equals(employeeTable)) {
+			createTableQuery = "CREATE TABLE Employee ( " + "EmpID VARCHAR(50) NOT NULL, "
+					+ "UserName VARCHAR(50) NOT NULL, " + "Password VARCHAR(50) NOT NULL, " + "PRIMARY KEY ( EmpID ) "
+					+ ")";
+		} else if (tableName.equals(issueTable)) {
+			createTableQuery = "CREATE TABLE Issue ( " + "IssueID VARCHAR(20) NOT NULL, " + "IssueType varchar(50), "
+					+ "IssueDescription TEXT, " + "IssueItem VARCHAR(50), " + "PRIMARY KEY ( IssueID ) " + ")";
+		} else if (tableName.equals(issueTrackerTable)) {
+			createTableQuery = "CREATE TABLE IssueTracker ( " + "EmpID VARCHAR(50) NOT NULL, "
+					+ "IssueID VARCHAR(20) NOT NULL, " + "DateCreated TIMESTAMP NOT NULL DEFAULT 0, "
+					+ "TagetResolutionDate TIMESTAMP, " + "DateResolved VARCHAR(50), " + "AssignedTo VARCHAR(50), "
+					+ "TimeTaken VARCHAR(50), " + "Priority ENUM('MINOR', 'MAJOR', 'CRITICAL'), "
+					+ "Status ENUM('NEW', 'IN_PROGRESS', 'FIXED'), " + "PRIMARY KEY(EmpID, IssueID, DateCreated)" + ")";
+		} else if (tableName.equals(solutionTable)) {
+			createTableQuery = "CREATE TABLE Solution ( " + "SolutionID VARCHAR(20) NOT NULL, "
+					+ "IssueID VARCHAR(20) NOT NULL, " + "Solutions TEXT, " + "PRIMARY KEY(SolutionID, IssueID)" + ")";
+		}
+		try {
+			PreparedStatement statement = connection.prepareStatement(createTableQuery);
+			statement.execute();
+			//DB_LOGGERR.info("Table : " + tableName + " created successfully");
+		} catch (SQLException e) {
+			//DB_LOGGERR.error("error in creating table : " + tableName);
+			e.printStackTrace();
+		}
+
+	}
+
+	/**
+	 * Using ticketResolution Database once the database is created.
+	 */
+	public static void useTicketResolutionDB() {
+		Statement useStatement = null;
+		String useDBQuery = "USE " + dbName;
+		try {
+			useStatement = connection.createStatement();
+			useStatement.execute(useDBQuery);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	/**
+	 * Create ticketresolution database if not exists.
+	 */
+	public static void prepareDB() {
+		PreparedStatement createStatement = null;
+		String[] table = tables.split(",");
+		ResultSet tables = null;
+		String[] types = { "TABLE" };
+		String createDBQuery = "CREATE DATABASE IF NOT EXISTS " + dbName;
+		// String dBUseQuery = "USE " + dbName;
+		boolean dbExists = false;
+		try {
+			dbmetadata = connection.getMetaData();
+			ResultSet catalogs = dbmetadata.getCatalogs();
+			while (catalogs.next()) {
+				if (catalogs.getString("TABLE_CAT").equals(dbName)) {
+					dbExists = true;
+					//DB_LOGGERR.info("Database : " + dbName + " already exists");
+					break;
+				} else {
+					//DB_LOGGERR.info(catalogs.getString("TABLE_CAT"));
+				}
+			}
+			if (dbExists) {
+				int i = 0;
+				useTicketResolutionDB();
+				while (i < table.length) {
+					tables = dbmetadata.getTables(dbName, null, table[i], types);
+					if (tables.next()) {
+						//DB_LOGGERR.info("Table : " + tables.getString("TABLE_NAME") + " already exists");
+					} else {
+						prepareTables(table[i]);
+						// String createTableQuery = "";
+						// stmt = con.prepareStatement(createTableQuery);
+					}
+					i++;
+				}
+
+			} else {
+				createStatement = connection.prepareStatement(createDBQuery);
+				// boolean created = stmt.execute();
+				createStatement.execute();
+				useTicketResolutionDB();
+				//DB_LOGGERR.info("New database created : " + dbName);
+				for (int table_index = 0; table_index < table.length; table_index++) {
+					prepareTables(table[table_index]);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+
+	/**
+	 * Closing the database connection
+	 * @throws SQLException 
+	 */
+	public void closeDBConnection() throws SQLException {
+		//DB_LOGGERR.info("Closing database connection ");
+		ProductDao.connection.close();
+	}
+
+
+
+}

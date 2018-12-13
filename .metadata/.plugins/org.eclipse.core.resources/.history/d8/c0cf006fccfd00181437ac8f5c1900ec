@@ -1,0 +1,137 @@
+package com.product.imple;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
+import com.mkyong.OrderBean.Order;
+import com.product.dao.ProductDao;
+import com.product.dao.ProductManipulation;
+import com.product.model.Product;
+
+@ManagedBean
+@ViewScoped
+public class ProductMgmtImpl {
+	String productId;
+	String productName;
+	Double productPrice;
+	String productDesc;
+	int quantity;
+	boolean isEditable = false;
+	boolean isAddProductSection = false;
+	static List<Product> productList = null;
+	ProductManipulation productmanipulation = null;
+	public ProductMgmtImpl() {
+		productmanipulation = new ProductManipulation();
+		productList = productmanipulation.getAllProducts();
+		/*productList = new ArrayList<Product>();
+		productList.add(new Product("PROD_01","VIVO",12000.00,"Slim Sleeky mobile phone",120));
+		productList.add(new Product("PROD_02","APPLE",45000.00,"Slim Sleeky mobile phone",70));
+		productList.add(new Product("PROD_03","MOTO",15000.00,"Slim Sleeky mobile phone",60));
+		productList.add(new Product("PROD_04","HONOR",20000.00,"Slim Sleeky mobile phone",50));
+		productList.add(new Product("PROD_06","SAMSUNG",35000.00,"Water proof mobile phone",100));*/
+	}
+
+	public List<Product> getProductList() {
+		return productList;
+	}
+
+	public void setProductList(List<Product> productList) {
+		this.productList = productList;
+	}
+	
+	public String deleteProduct(Product ProductId) {
+				productList.remove(ProductId);
+				return null;
+	}
+	
+	public String addProduct() {
+		Product p = new Product(this.productId, this.productName, this.productPrice, this.productDesc, this.quantity);
+		productList = productmanipulation.addProducttoDb(p);
+		sortAscending();
+		return null;
+	}
+
+	public void editProduct() {
+		isEditable = true;
+	}
+	
+	public void saveProdcut() {
+		isEditable = false;
+	}
+	
+	public String getProductId() {
+		return productId;
+	}
+
+	public String getProductName() {
+		return productName;
+	}
+
+	public Double getProductPrice() {
+		return productPrice;
+	}
+
+	public String getProductDesc() {
+		return productDesc;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setProductId(String productId) {
+		this.productId = productId;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+
+	public void setProductPrice(Double productPrice) {
+		this.productPrice = productPrice;
+	}
+
+	public void setProductDesc(String productDesc) {
+		this.productDesc = productDesc;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	
+	public String editAction(Product product) {
+	    
+		product.setEditable(true);
+		return null;
+	}
+	
+	private void sortAscending() {
+		Collections.sort(productList, new Comparator<Product>() {
+			@Override
+			public int compare(Product p1, Product p2) {
+				return p1.getProductId().compareTo(p2.getProductId());
+			}
+		});
+	}
+	
+	public String saveAction() {
+	    for (Product product : getProductList()){
+	    	product.setEditable(false);
+		}
+	    sortAscending();
+	    return null;
+	}
+	
+	public void add() {
+		this.isAddProductSection=true;
+	}
+	
+	public boolean isAddProductSection() {
+		return isAddProductSection;
+	}
+}

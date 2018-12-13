@@ -1,0 +1,70 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+   	  xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+<title>Product Management System</title>
+<h:outputStylesheet library = "css" name = "style.css"  />
+</h:head>
+<h:body>
+<h:form class="formm">
+	<h:dataTable value="#{productMgmtImpl.productList}" var="prodcut"
+			styleClass = "employeeTable"
+            headerClass = "employeeTableHeader"
+            rowClasses = "employeeTableOddRow,employeeTableEvenRow"
+	>
+	<h:column>
+	<f:facet name="header">Product ID</f:facet>
+	<h:inputText value="#{prodcut.productId}" size="10" rendered="#{prodcut.editable}" />
+    <h:outputText value="#{prodcut.productId}" rendered="#{not prodcut.editable}" />
+	</h:column>
+	<h:column>
+	<f:facet name="header">Name</f:facet>
+	<h:inputText value="#{prodcut.productName}" size="10" rendered="#{prodcut.editable}" />
+    <h:outputText value="#{prodcut.productName}" rendered="#{not prodcut.editable}" />
+	</h:column>
+	<h:column>
+	<f:facet name="header">Price</f:facet>
+	<h:inputText value="#{prodcut.productPrice}" size="10" rendered="#{prodcut.editable}" />
+    <h:outputText value="#{prodcut.productPrice}" rendered="#{not prodcut.editable}" />
+	</h:column>
+	<h:column>
+	<f:facet name="header">Description</f:facet>
+	<h:inputText value="#{prodcut.productDesc}" size="10" rendered="#{prodcut.editable}" />
+    <h:outputText value="#{prodcut.productDesc}" rendered="#{not prodcut.editable}" />
+	</h:column>
+	<h:column>
+	<f:facet name="header">Quantity</f:facet>
+	<h:inputText value="#{prodcut.quantity}" size="10" rendered="#{prodcut.editable}" />
+    <h:outputText value="#{prodcut.quantity}" rendered="#{not prodcut.editable}" />
+	</h:column>
+	<h:column>
+    <f:facet name="header">Delete</f:facet>
+	<h:commandButton action="#{productMgmtImpl.deleteProduct(prodcut)}" value="Delete Product"></h:commandButton>
+	</h:column>
+	<h:column>
+    <f:facet name="header">Action</f:facet>
+    <h:commandLink value="Edit" action="#{productMgmtImpl.editAction(prodcut)}" rendered="#{not prodcut.editable}" />
+    </h:column>
+	</h:dataTable>
+	<br/>
+	<h:commandButton value="Save Changes" action="#{productMgmtImpl.saveAction}" />
+	<br/>
+	<h2> ADD NEW PRODUCT</h2>
+	<h:panelGrid id = "panel" columns = "2">
+	<h:outputLabel>Product ID 	:</h:outputLabel>
+	<h:inputText id="pid" value="#{productMgmtImpl.productId}" required="true" requiredMessage="Product ID is mandatory"></h:inputText>
+	<h:message id="pidmsg" for="pid" style="color:red"/>
+	<h:outputLabel>Name		:</h:outputLabel>
+	<h:inputText value="#{productMgmtImpl.productName}" required="true"></h:inputText>
+	<h:outputLabel>Price 	:</h:outputLabel>
+	<h:inputText value="#{productMgmtImpl.productPrice}" required="true"></h:inputText>
+	<h:outputLabel>Description 	:</h:outputLabel>
+	<h:inputText value="#{productMgmtImpl.productDesc}" required="true"></h:inputText>
+	<h:outputLabel>Quantity 	:</h:outputLabel>
+	<h:inputText value="#{productMgmtImpl.quantity}" required="true"></h:inputText>
+	<h:commandButton value="Add Product" action="#{productMgmtImpl.addProduct}">
+	</h:commandButton>
+	</h:panelGrid>
+	</h:form>
+</h:body>
+</html>

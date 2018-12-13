@@ -1,0 +1,9 @@
+package com.ticketresolution.service;
+
+public class ReportGenerationService {
+
+	
+	public void getUserWiseReport() {
+		
+	}
+}

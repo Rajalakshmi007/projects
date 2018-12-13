@@ -1,0 +1,59 @@
+package com.product.dao;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.List;
+
+import com.product.model.Product;
+
+public class ProductManipulation {
+	ProductDao dbconnection = null;
+	List<Product> productList = null;
+	public ProductManipulation() {
+		dbconnection = new ProductDao();
+	}
+	
+	public List<Product> getAllProducts(){
+		Statement statement = null;
+		String query = "SELECT * from producttable;";
+		try {
+			statement = ProductDao.connection.createStatement();
+			ResultSet resultset = statement.executeQuery(query);
+			while (resultset.next()) {
+				Product p = new Product();
+				p.setProductId(resultset.getString(1));
+				p.setProductName(resultset.getString(2));
+				p.setProductPrice(new Double(resultset.getString(3)));
+				p.setProductDesc(resultset.getString(4));
+				p.setQuantity(new Integer(resultset.getString(5)));
+				productList.add(p);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return productList;
+	}
+	
+	public List<Product> addProducttoDb(){
+		Statement statement = null;
+		String query = "SELECT * from producttable;";
+		try {
+			statement = ProductDao.connection.createStatement();
+			ResultSet resultset = statement.executeQuery(query);
+			while (resultset.next()) {
+				Product p = new Product();
+				p.setProductId(resultset.getString(1));
+				p.setProductName(resultset.getString(2));
+				p.setProductPrice(new Double(resultset.getString(3)));
+				p.setProductDesc(resultset.getString(4));
+				p.setQuantity(new Integer(resultset.getString(5)));
+				productList.add(p);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return productList;
+	}
+
+}
